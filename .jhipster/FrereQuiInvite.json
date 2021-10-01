@@ -1,0 +1,61 @@
+{
+  "name": "FrereQuiInvite",
+  "fields": [
+    {
+      "fieldName": "nomComplet",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "Sexe",
+      "fieldValues": "F,M"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "frereQuiInvite",
+      "relationshipName": "quartier",
+      "otherEntityField": "nom"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "frereQuiInvite",
+      "relationshipName": "departement",
+      "otherEntityField": "nom",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "nouveau",
+      "otherEntityRelationshipName": "frereQuiInvite",
+      "relationshipName": "nouveau",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "gem",
+      "otherEntityRelationshipName": "frereQuiInvite",
+      "relationshipName": "gem",
+      "otherEntityField": "nom",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "frere_qui_invite",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162817"
+}

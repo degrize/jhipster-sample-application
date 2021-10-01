@@ -1,0 +1,44 @@
+{
+  "name": "ImageCulte",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "culte",
+      "otherEntityRelationshipName": "imageCulte",
+      "relationshipName": "culte",
+      "otherEntityField": "theme",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "imageCulte",
+      "relationshipName": "departement",
+      "otherEntityField": "nom",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "image_culte",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162814"
+}

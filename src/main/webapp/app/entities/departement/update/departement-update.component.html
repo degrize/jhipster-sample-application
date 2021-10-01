@@ -1,0 +1,196 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-departement-heading"
+        data-cy="DepartementCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.departement.home.createOrEditLabel"
+      >
+        Create or edit a Departement
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.departement.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.departement.shortName" for="field_shortName"
+            >Short Name</label
+          >
+          <input type="text" class="form-control" name="shortName" id="field_shortName" data-cy="shortName" formControlName="shortName" />
+          <div *ngIf="editForm.get('shortName')!.invalid && (editForm.get('shortName')!.dirty || editForm.get('shortName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shortName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.departement.nomResponsable"
+            for="field_nomResponsable"
+            >Nom Responsable</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomResponsable"
+            id="field_nomResponsable"
+            data-cy="nomResponsable"
+            formControlName="nomResponsable"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.departement.videoIntroduction"
+            for="field_videoIntroduction"
+            >Video Introduction</label
+          >
+          <div>
+            <div *ngIf="editForm.get('videoIntroduction')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-left"
+                (click)="openFile(editForm.get('videoIntroduction')!.value, editForm.get('videoIntroductionContentType')!.value)"
+                jhiTranslate="entity.action.open"
+                >open</a
+              ><br />
+              <span class="pull-left"
+                >{{ editForm.get('videoIntroductionContentType')!.value }}, {{ byteSize(editForm.get('videoIntroduction')!.value) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ videoIntroduction: null }); editForm.patchValue({ videoIntroductionContentType: null })"
+                class="btn btn-secondary btn-xs pull-right"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_videoIntroduction"
+              data-cy="videoIntroduction"
+              (change)="setFileData($event, 'videoIntroduction', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="videoIntroduction"
+            id="field_videoIntroduction"
+            data-cy="videoIntroduction"
+            formControlName="videoIntroduction"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="videoIntroductionContentType"
+            id="field_videoIntroductionContentType"
+            formControlName="videoIntroductionContentType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.departement.contactResponsable"
+            for="field_contactResponsable"
+            >Contact Responsable</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactResponsable"
+            id="field_contactResponsable"
+            data-cy="contactResponsable"
+            formControlName="contactResponsable"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.departement.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.departement.couleur1" for="field_couleur1"
+            >Couleur 1</label
+          >
+          <input type="text" class="form-control" name="couleur1" id="field_couleur1" data-cy="couleur1" formControlName="couleur1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.departement.couleur2" for="field_couleur2"
+            >Couleur 2</label
+          >
+          <input type="text" class="form-control" name="couleur2" id="field_couleur2" data-cy="couleur2" formControlName="couleur2" />
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="jhipsterSampleApplicationApp.departement.imageCulte" for="field_imageCultes">Image Culte</label>
+          <select
+            class="form-control"
+            id="field_imageCultes"
+            data-cy="imageCulte"
+            multiple
+            name="imageCultes"
+            formControlName="imageCultes"
+          >
+            <option
+              [ngValue]="getSelectedImageCulte(imageCulteOption, editForm.get('imageCultes')!.value)"
+              *ngFor="let imageCulteOption of imageCultesSharedCollection; trackBy: trackImageCulteById"
+            >
+              {{ imageCulteOption.titre }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "CanalInvitation": {
+      "null": "",
+      "RADIO": "RADIO",
+      "INTERNET": "INTERNET",
+      "FAMILLE": "FAMILLE",
+      "AMI": "AMI"
+    }
+  }
+}

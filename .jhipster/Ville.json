@@ -1,0 +1,29 @@
+{
+  "name": "Ville",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "ville",
+      "relationshipName": "quartier",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "ville",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162819"
+}

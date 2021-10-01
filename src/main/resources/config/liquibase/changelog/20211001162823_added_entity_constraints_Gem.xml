@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity Gem.
+    -->
+    <changeSet id="20211001162823-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="guard_id"
+                                 baseTableName="gem"
+                                 constraintName="fk_gem__guard_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="guard"/>
+
+        <addForeignKeyConstraint baseColumnNames="departement_id"
+                                 baseTableName="gem"
+                                 constraintName="fk_gem__departement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departement"/>
+
+        <addForeignKeyConstraint baseColumnNames="gem_id"
+                                 baseTableName="rel_gem__frere_qui_invite"
+                                 constraintName="fk_rel_gem__frere_qui_invite__gem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gem"/>
+
+        <addForeignKeyConstraint baseColumnNames="frere_qui_invite_id"
+                                 baseTableName="rel_gem__frere_qui_invite"
+                                 constraintName="fk_rel_gem__frere_qui_invite__frere_qui_invite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="frere_qui_invite"/>
+    </changeSet>
+</databaseChangeLog>

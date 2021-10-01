@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "imageCulte": {
+      "home": {
+        "title": "Image Cultes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Image Culte",
+        "createOrEditLabel": "Crear o editar Image Culte",
+        "search": "Buscar Image Culte",
+        "notFound": "Ningún Image Cultes encontrado"
+      },
+      "created": "Un nuevo Image Culte ha sido creado con el identificador {{ param }}",
+      "updated": "Un Image Culte ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Image Culte ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Image Culte {{ id }}?"
+      },
+      "detail": {
+        "title": "Image Culte"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "image": "Image",
+      "culte": "Culte",
+      "departement": "Departement"
+    }
+  }
+}

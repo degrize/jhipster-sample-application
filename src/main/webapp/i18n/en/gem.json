@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "gem": {
+      "home": {
+        "title": "Gems",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Gem",
+        "createOrEditLabel": "Create or edit a Gem",
+        "search": "Search for Gem",
+        "notFound": "No Gems found"
+      },
+      "created": "A new Gem is created with identifier {{ param }}",
+      "updated": "A Gem is updated with identifier {{ param }}",
+      "deleted": "A Gem is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Gem {{ id }}?"
+      },
+      "detail": {
+        "title": "Gem"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "annee": "Annee",
+      "guard": "Guard",
+      "departement": "Departement",
+      "frereQuiInvite": "Frere Qui Invite",
+      "gem": "Gem"
+    }
+  }
+}

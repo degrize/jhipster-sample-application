@@ -1,0 +1,9 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "Sexe": {
+      "null": "",
+      "F": "F",
+      "M": "M"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Besoin",
+  "fields": [
+    {
+      "fieldName": "besoin",
+      "fieldType": "BesoinType",
+      "fieldValues": "DELIVRANCE,PRIERE,SUIVI,GUERISON,CONNAITRE_DIEU_EN_PROFONDEUR",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "nouveau",
+      "otherEntityRelationshipName": "besoin",
+      "relationshipName": "nouveau",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "besoin",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162822"
+}

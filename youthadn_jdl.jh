@@ -1,0 +1,164 @@
+
+entity Culte {
+	theme String required,
+    date LocalDate required,
+}
+
+entity ImageCulte {
+	titre String required,
+    image Blob required
+}
+
+/**
+ * Nouveau entity.
+ * @author Youth Team.
+ */
+entity Nouveau {
+    /**
+     * Le nom complet name.
+     * @author Youth Team.
+    */
+	nomComplet String required,
+    contact String,
+    trancheAge String,
+    situationMatrimoniale SituationMatrimoniale,
+    date LocalDate,
+    impressionsDuCulte String,
+    sexe Sexe,
+    invitePar CanalInvitation
+    
+}
+
+entity Decision {
+	decision DecisionType required
+}
+
+entity FrereQuiInvite {
+	nomComplet String required,
+    contact String,
+    sexe Sexe
+}
+
+entity Communaute {
+	nom String required
+}
+
+entity Ville {
+	nom String required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Quartier {
+	nom String required,
+}
+
+/**
+ * Department entity.
+ * @author Youth Team.
+ */
+entity Departement {
+	nom String required,
+    shortName String required,
+    nomResponsable String,
+    videoIntroduction Blob,
+    contactResponsable String,
+    description String,
+    couleur1 String,
+    couleur2 String
+}
+
+entity Besoin {
+	besoin BesoinType required
+}
+
+entity Gem {
+	nom String required,
+    annee String required,
+}
+
+entity Guard {}
+
+
+enum Sexe {
+	F, M
+}
+
+enum CanalInvitation {
+	RADIO, INTERNET, FAMILLE, AMI
+}
+
+enum SituationMatrimoniale {
+    SEUL, FIANCE, CONCUBINAGE, MARIE, VEUF
+}
+
+enum DecisionType {
+	JE_DECIDE_D_ETRE_MEMBRE, INDECIS, JE_VEUX_DONNER_MA_VIE_A_JESUS
+}
+
+enum BesoinType{
+	DELIVRANCE, PRIERE, SUIVI, GUERISON, CONNAITRE_DIEU_EN_PROFONDEUR
+}
+
+relationship ManyToOne {
+	Nouveau{communaute(nom)} to Communaute,
+    Nouveau{ville(nom)} to Ville,
+    Nouveau{quartier(nom)} to Quartier,
+    Nouveau{culte(theme)} to Culte{nouveau}
+}
+
+relationship ManyToMany {
+	Nouveau{departement(nom)} to Departement{nouveau},
+    Nouveau{frereQuiInvite(nomComplet)} to FrereQuiInvite{nouveau},
+    Nouveau{besoin(besoin)} to Besoin{nouveau},
+    Nouveau{decision(decision)} to Decision{nouveau}
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToMany {
+	Quartier{ville(nom)} to Ville{quartier}
+}
+
+relationship ManyToMany {
+    Culte{imageCulte(titre)} to ImageCulte{culte(theme)}
+}
+
+relationship ManyToMany {
+    FrereQuiInvite{departement(nom)} to Departement{frereQuiInvite(nomComplet)}
+}
+
+relationship ManyToOne {
+    FrereQuiInvite{quartier(nom)} to Quartier{frereQuiInvite(nomComplet)}
+}
+
+relationship ManyToMany {
+	Departement{imageCulte(titre)} to ImageCulte{departement(nom)}
+}
+
+relationship ManyToOne {
+	Guard{guard} to Gem{gem}
+}
+
+relationship ManyToMany {
+	Gem{frereQuiInvite(nomComplet)} to FrereQuiInvite{gem(nom)}
+}
+
+relationship ManyToOne {
+	Gem{guard} to Guard{gem}
+    Gem{departement(nom)} to Departement{gem},
+}
+
+
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

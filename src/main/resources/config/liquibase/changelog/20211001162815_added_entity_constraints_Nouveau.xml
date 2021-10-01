@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity Nouveau.
+    -->
+    <changeSet id="20211001162815-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="communaute_id"
+                                 baseTableName="nouveau"
+                                 constraintName="fk_nouveau__communaute_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="communaute"/>
+
+        <addForeignKeyConstraint baseColumnNames="ville_id"
+                                 baseTableName="nouveau"
+                                 constraintName="fk_nouveau__ville_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ville"/>
+
+        <addForeignKeyConstraint baseColumnNames="quartier_id"
+                                 baseTableName="nouveau"
+                                 constraintName="fk_nouveau__quartier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quartier"/>
+
+        <addForeignKeyConstraint baseColumnNames="culte_id"
+                                 baseTableName="nouveau"
+                                 constraintName="fk_nouveau__culte_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="culte"/>
+
+        <addForeignKeyConstraint baseColumnNames="nouveau_id"
+                                 baseTableName="rel_nouveau__departement"
+                                 constraintName="fk_rel_nouveau__departement__nouveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nouveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="departement_id"
+                                 baseTableName="rel_nouveau__departement"
+                                 constraintName="fk_rel_nouveau__departement__departement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departement"/>
+
+        <addForeignKeyConstraint baseColumnNames="nouveau_id"
+                                 baseTableName="rel_nouveau__frere_qui_invite"
+                                 constraintName="fk_rel_nouveau__frere_qui_invite__nouveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nouveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="frere_qui_invite_id"
+                                 baseTableName="rel_nouveau__frere_qui_invite"
+                                 constraintName="fk_rel_nouveau__frere_qui_invite__frere_qui_invite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="frere_qui_invite"/>
+
+        <addForeignKeyConstraint baseColumnNames="nouveau_id"
+                                 baseTableName="rel_nouveau__besoin"
+                                 constraintName="fk_rel_nouveau__besoin__nouveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nouveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="besoin_id"
+                                 baseTableName="rel_nouveau__besoin"
+                                 constraintName="fk_rel_nouveau__besoin__besoin_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="besoin"/>
+
+        <addForeignKeyConstraint baseColumnNames="nouveau_id"
+                                 baseTableName="rel_nouveau__decision"
+                                 constraintName="fk_rel_nouveau__decision__nouveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nouveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="decision_id"
+                                 baseTableName="rel_nouveau__decision"
+                                 constraintName="fk_rel_nouveau__decision__decision_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="decision"/>
+    </changeSet>
+</databaseChangeLog>

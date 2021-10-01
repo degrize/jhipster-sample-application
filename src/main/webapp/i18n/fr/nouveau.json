@@ -1,0 +1,43 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "nouveau": {
+      "home": {
+        "title": "Nouveaus",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Nouveau",
+        "search": "Recherche pour Nouveau",
+        "notFound": "Aucun Nouveau trouvé"
+      },
+      "created": "Un nouveau Nouveau a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nouveau avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nouveau avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Nouveau {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nouveau"
+      },
+      "id": "ID",
+      "nomComplet": "Nom Complet",
+      "contact": "Contact",
+      "trancheAge": "Tranche Age",
+      "situationMatrimoniale": "Situation Matrimoniale",
+      "date": "Date",
+      "impressionsDuCulte": "Impressions Du Culte",
+      "sexe": "Sexe",
+      "invitePar": "Invite Par",
+      "communaute": "Communaute",
+      "ville": "Ville",
+      "quartier": "Quartier",
+      "culte": "Culte",
+      "departement": "Departement",
+      "frereQuiInvite": "Frere Qui Invite",
+      "besoin": "Besoin",
+      "decision": "Decision",
+      "help": {
+        "nomComplet": "Le nom complet name.\n@author Youth Team."
+      }
+    }
+  }
+}

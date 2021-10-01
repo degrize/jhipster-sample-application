@@ -1,0 +1,28 @@
+{
+  "name": "Guard",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "gem",
+      "otherEntityRelationshipName": "gem",
+      "relationshipName": "guard"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "gem",
+      "otherEntityRelationshipName": "guard",
+      "relationshipName": "gem"
+    }
+  ],
+  "entityTableName": "guard",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162824"
+}
