@@ -1,0 +1,54 @@
+{
+  "name": "Gem",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "annee",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "guard",
+      "otherEntityRelationshipName": "gem",
+      "relationshipName": "guard"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "gem",
+      "relationshipName": "departement",
+      "otherEntityField": "nom"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "frereQuiInvite",
+      "otherEntityRelationshipName": "gem",
+      "relationshipName": "frereQuiInvite",
+      "otherEntityField": "nomComplet",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "guard",
+      "otherEntityRelationshipName": "guard",
+      "relationshipName": "gem"
+    }
+  ],
+  "entityTableName": "gem",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162823"
+}

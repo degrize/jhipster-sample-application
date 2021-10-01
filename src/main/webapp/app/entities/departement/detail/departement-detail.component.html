@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="departement">
+      <h2 data-cy="departementDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.departement.detail.title">Departement</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ departement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.nom">Nom</span></dt>
+        <dd>
+          <span>{{ departement.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.shortName">Short Name</span></dt>
+        <dd>
+          <span>{{ departement.shortName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.nomResponsable">Nom Responsable</span></dt>
+        <dd>
+          <span>{{ departement.nomResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.videoIntroduction">Video Introduction</span></dt>
+        <dd>
+          <div *ngIf="departement.videoIntroduction">
+            <a (click)="openFile(departement.videoIntroduction, departement.videoIntroductionContentType)" jhiTranslate="entity.action.open"
+              >open</a
+            >
+            {{ departement.videoIntroductionContentType }}, {{ byteSize(departement.videoIntroduction) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.contactResponsable">Contact Responsable</span></dt>
+        <dd>
+          <span>{{ departement.contactResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.description">Description</span></dt>
+        <dd>
+          <span>{{ departement.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.couleur1">Couleur 1</span></dt>
+        <dd>
+          <span>{{ departement.couleur1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.couleur2">Couleur 2</span></dt>
+        <dd>
+          <span>{{ departement.couleur2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.departement.imageCulte">Image Culte</span></dt>
+        <dd>
+          <span *ngFor="let imageCulte of departement.imageCultes; let last = last">
+            <a [routerLink]="['/image-culte', imageCulte?.id, 'view']">{{ imageCulte.titre }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/departement', departement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

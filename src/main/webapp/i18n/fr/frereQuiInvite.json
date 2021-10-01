@@ -1,0 +1,31 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "frereQuiInvite": {
+      "home": {
+        "title": "FrereQuiInvites",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Frere Qui Invite",
+        "createOrEditLabel": "Créer ou éditer un Frere Qui Invite",
+        "search": "Recherche pour Frere Qui Invite",
+        "notFound": "Aucun Frere Qui Invite trouvé"
+      },
+      "created": "Un nouveau Frere Qui Invite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Frere Qui Invite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Frere Qui Invite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Frere Qui Invite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Frere Qui Invite"
+      },
+      "id": "ID",
+      "nomComplet": "Nom Complet",
+      "contact": "Contact",
+      "sexe": "Sexe",
+      "quartier": "Quartier",
+      "departement": "Departement",
+      "nouveau": "Nouveau",
+      "gem": "Gem"
+    }
+  }
+}

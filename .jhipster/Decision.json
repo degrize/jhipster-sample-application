@@ -1,0 +1,30 @@
+{
+  "name": "Decision",
+  "fields": [
+    {
+      "fieldName": "decision",
+      "fieldType": "DecisionType",
+      "fieldValues": "JE_DECIDE_D_ETRE_MEMBRE,INDECIS,JE_VEUX_DONNER_MA_VIE_A_JESUS",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "nouveau",
+      "otherEntityRelationshipName": "decision",
+      "relationshipName": "nouveau",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "decision",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162816"
+}

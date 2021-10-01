@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "communaute": {
+      "home": {
+        "title": "Communautes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Communaute",
+        "createOrEditLabel": "Créer ou éditer un Communaute",
+        "search": "Recherche pour Communaute",
+        "notFound": "Aucun Communaute trouvé"
+      },
+      "created": "Un nouveau Communaute a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Communaute avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Communaute avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Communaute {{ id }} ?"
+      },
+      "detail": {
+        "title": "Communaute"
+      },
+      "id": "ID",
+      "nom": "Nom"
+    }
+  }
+}

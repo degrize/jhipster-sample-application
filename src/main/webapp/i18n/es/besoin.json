@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "besoin": {
+      "home": {
+        "title": "Besoins",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Besoin",
+        "createOrEditLabel": "Crear o editar Besoin",
+        "search": "Buscar Besoin",
+        "notFound": "Ningún Besoins encontrado"
+      },
+      "created": "Un nuevo Besoin ha sido creado con el identificador {{ param }}",
+      "updated": "Un Besoin ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Besoin ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Besoin {{ id }}?"
+      },
+      "detail": {
+        "title": "Besoin"
+      },
+      "id": "ID",
+      "besoin": "Besoin",
+      "nouveau": "Nouveau"
+    }
+  }
+}

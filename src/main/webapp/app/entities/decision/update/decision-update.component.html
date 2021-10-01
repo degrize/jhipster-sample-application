@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-decision-heading"
+        data-cy="DecisionCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.decision.home.createOrEditLabel"
+      >
+        Create or edit a Decision
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.decision.decision" for="field_decision"
+            >Decision</label
+          >
+          <select class="form-control" name="decision" formControlName="decision" id="field_decision" data-cy="decision">
+            <option [ngValue]="null">{{ 'jhipsterSampleApplicationApp.DecisionType.null' | translate }}</option>
+            <option value="JE_DECIDE_D_ETRE_MEMBRE">
+              {{ 'jhipsterSampleApplicationApp.DecisionType.JE_DECIDE_D_ETRE_MEMBRE' | translate }}
+            </option>
+            <option value="INDECIS">{{ 'jhipsterSampleApplicationApp.DecisionType.INDECIS' | translate }}</option>
+            <option value="JE_VEUX_DONNER_MA_VIE_A_JESUS">
+              {{ 'jhipsterSampleApplicationApp.DecisionType.JE_VEUX_DONNER_MA_VIE_A_JESUS' | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('decision')!.invalid && (editForm.get('decision')!.dirty || editForm.get('decision')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('decision')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

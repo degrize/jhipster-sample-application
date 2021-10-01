@@ -1,0 +1,115 @@
+{
+  "name": "Nouveau",
+  "fields": [
+    {
+      "fieldName": "nomComplet",
+      "fieldType": "String",
+      "javadoc": "Le nom complet name.\\n@author Youth Team.",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trancheAge",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "situationMatrimoniale",
+      "fieldType": "SituationMatrimoniale",
+      "fieldValues": "SEUL,FIANCE,CONCUBINAGE,MARIE,VEUF"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "impressionsDuCulte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "Sexe",
+      "fieldValues": "F,M"
+    },
+    {
+      "fieldName": "invitePar",
+      "fieldType": "CanalInvitation",
+      "fieldValues": "RADIO,INTERNET,FAMILLE,AMI"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "communaute",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "communaute",
+      "otherEntityField": "nom"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ville",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "ville",
+      "otherEntityField": "nom"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "quartier",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "quartier",
+      "otherEntityField": "nom"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "culte",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "culte",
+      "otherEntityField": "theme"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "departement",
+      "otherEntityField": "nom",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "frereQuiInvite",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "frereQuiInvite",
+      "otherEntityField": "nomComplet",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "besoin",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "besoin",
+      "otherEntityField": "besoin",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "decision",
+      "otherEntityRelationshipName": "nouveau",
+      "relationshipName": "decision",
+      "otherEntityField": "decision",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "Nouveau entity.\\n@author Youth Team.",
+  "entityTableName": "nouveau",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001162815"
+}

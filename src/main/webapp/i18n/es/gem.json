@@ -1,0 +1,30 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "gem": {
+      "home": {
+        "title": "Gems",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Gem",
+        "createOrEditLabel": "Crear o editar Gem",
+        "search": "Buscar Gem",
+        "notFound": "Ningún Gems encontrado"
+      },
+      "created": "Un nuevo Gem ha sido creado con el identificador {{ param }}",
+      "updated": "Un Gem ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Gem ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Gem {{ id }}?"
+      },
+      "detail": {
+        "title": "Gem"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "annee": "Annee",
+      "guard": "Guard",
+      "departement": "Departement",
+      "frereQuiInvite": "Frere Qui Invite",
+      "gem": "Gem"
+    }
+  }
+}

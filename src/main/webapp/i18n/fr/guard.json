@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "guard": {
+      "home": {
+        "title": "Guards",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Guard",
+        "createOrEditLabel": "Créer ou éditer un Guard",
+        "search": "Recherche pour Guard",
+        "notFound": "Aucun Guard trouvé"
+      },
+      "created": "Un nouveau Guard a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Guard avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Guard avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Guard {{ id }} ?"
+      },
+      "detail": {
+        "title": "Guard"
+      },
+      "id": "ID",
+      "guard": "Guard",
+      "gem": "Gem"
+    }
+  }
+}

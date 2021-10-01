@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "quartier": {
+      "home": {
+        "title": "Quartiers",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Quartier",
+        "createOrEditLabel": "Crear o editar Quartier",
+        "search": "Buscar Quartier",
+        "notFound": "Ningún Quartiers encontrado"
+      },
+      "created": "Un nuevo Quartier ha sido creado con el identificador {{ param }}",
+      "updated": "Un Quartier ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Quartier ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Quartier {{ id }}?"
+      },
+      "detail": {
+        "title": "Quartier"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "ville": "Ville",
+      "frereQuiInvite": "Frere Qui Invite"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="imageCulte">
+      <h2 data-cy="imageCulteDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.imageCulte.detail.title">Image Culte</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ imageCulte.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.imageCulte.titre">Titre</span></dt>
+        <dd>
+          <span>{{ imageCulte.titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.imageCulte.image">Image</span></dt>
+        <dd>
+          <div *ngIf="imageCulte.image">
+            <a (click)="openFile(imageCulte.image, imageCulte.imageContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ imageCulte.imageContentType }}, {{ byteSize(imageCulte.image) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/image-culte', imageCulte.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "nouveau": {
+      "home": {
+        "title": "Nouveaus",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Nouveau",
+        "createOrEditLabel": "Crear o editar Nouveau",
+        "search": "Buscar Nouveau",
+        "notFound": "Ningún Nouveaus encontrado"
+      },
+      "created": "Un nuevo Nouveau ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nouveau ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nouveau ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nouveau {{ id }}?"
+      },
+      "detail": {
+        "title": "Nouveau"
+      },
+      "id": "ID",
+      "nomComplet": "Nom Complet",
+      "contact": "Contact",
+      "trancheAge": "Tranche Age",
+      "situationMatrimoniale": "Situation Matrimoniale",
+      "date": "Date",
+      "impressionsDuCulte": "Impressions Du Culte",
+      "sexe": "Sexe",
+      "invitePar": "Invite Par",
+      "communaute": "Communaute",
+      "ville": "Ville",
+      "quartier": "Quartier",
+      "culte": "Culte",
+      "departement": "Departement",
+      "frereQuiInvite": "Frere Qui Invite",
+      "besoin": "Besoin",
+      "decision": "Decision",
+      "help": {
+        "nomComplet": "Le nom complet name.\n@author Youth Team."
+      }
+    }
+  }
+}

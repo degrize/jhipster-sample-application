@@ -42,7 +42,22 @@
     "jwtSecretKey": "MWEzZTA4NDIxMmNjY2FiMGNlODI2NWU2MTJkYWZkYzc3YzQ5MmU2ZjQ5NGY2OWYzNmU4YTIzNzdiZTNhMmM3NzlmZTlhNWE0ZTEzNTViNmJkMzQyZDkyMTY1YTI0NWZlMjMwNmUyMTE5OTg4NmU4Yzg5ZWVlZmEyYmZlNGRkNmQ=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": [
+      "Culte",
+      "ImageCulte",
+      "Nouveau",
+      "Decision",
+      "FrereQuiInvite",
+      "Communaute",
+      "Ville",
+      "Quartier",
+      "Departement",
+      "Besoin",
+      "Gem",
+      "Guard"
+    ],
+    "lastLiquibaseTimestamp": 1633105704000
   },
   "git-provider": "GitHub",
   "git-company": "degrize",

@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ville": {
+      "home": {
+        "title": "Villes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Ville",
+        "createOrEditLabel": "Crear o editar Ville",
+        "search": "Buscar Ville",
+        "notFound": "Ningún Villes encontrado"
+      },
+      "created": "Un nuevo Ville ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ville ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ville ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ville {{ id }}?"
+      },
+      "detail": {
+        "title": "Ville"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "quartier": "Quartier"
+    }
+  }
+}

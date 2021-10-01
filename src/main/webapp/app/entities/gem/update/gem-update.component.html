@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-gem-heading" data-cy="GemCreateUpdateHeading" jhiTranslate="jhipsterSampleApplicationApp.gem.home.createOrEditLabel">
+        Create or edit a Gem
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gem.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gem.annee" for="field_annee">Annee</label>
+          <input type="text" class="form-control" name="annee" id="field_annee" data-cy="annee" formControlName="annee" />
+          <div *ngIf="editForm.get('annee')!.invalid && (editForm.get('annee')!.dirty || editForm.get('annee')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('annee')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gem.guard" for="field_guard">Guard</label>
+          <select class="form-control" id="field_guard" data-cy="guard" name="guard" formControlName="guard">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="guardOption.id === editForm.get('guard')!.value?.id ? editForm.get('guard')!.value : guardOption"
+              *ngFor="let guardOption of guardsSharedCollection; trackBy: trackGuardById"
+            >
+              {{ guardOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.gem.departement" for="field_departement"
+            >Departement</label
+          >
+          <select class="form-control" id="field_departement" data-cy="departement" name="departement" formControlName="departement">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption
+              "
+              *ngFor="let departementOption of departementsSharedCollection; trackBy: trackDepartementById"
+            >
+              {{ departementOption.nom }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="jhipsterSampleApplicationApp.gem.frereQuiInvite" for="field_frereQuiInvites">Frere Qui Invite</label>
+          <select
+            class="form-control"
+            id="field_frereQuiInvites"
+            data-cy="frereQuiInvite"
+            multiple
+            name="frereQuiInvites"
+            formControlName="frereQuiInvites"
+          >
+            <option
+              [ngValue]="getSelectedFrereQuiInvite(frereQuiInviteOption, editForm.get('frereQuiInvites')!.value)"
+              *ngFor="let frereQuiInviteOption of frereQuiInvitesSharedCollection; trackBy: trackFrereQuiInviteById"
+            >
+              {{ frereQuiInviteOption.nomComplet }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -7,6 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "culte": "Culte",
+        "imageCulte": "Image Culte",
+        "nouveau": "Nouveau",
+        "decision": "Decision",
+        "frereQuiInvite": "Frere Qui Invite",
+        "communaute": "Communaute",
+        "ville": "Ville",
+        "quartier": "Quartier",
+        "departement": "Departement",
+        "besoin": "Besoin",
+        "gem": "Gem",
+        "guard": "Guard",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "decision": {
+      "home": {
+        "title": "Decisions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Decision",
+        "createOrEditLabel": "Create or edit a Decision",
+        "search": "Search for Decision",
+        "notFound": "No Decisions found"
+      },
+      "created": "A new Decision is created with identifier {{ param }}",
+      "updated": "A Decision is updated with identifier {{ param }}",
+      "deleted": "A Decision is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Decision {{ id }}?"
+      },
+      "detail": {
+        "title": "Decision"
+      },
+      "id": "ID",
+      "decision": "Decision",
+      "nouveau": "Nouveau"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "culte": {
+      "home": {
+        "title": "Cultes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Culte",
+        "createOrEditLabel": "Crear o editar Culte",
+        "search": "Buscar Culte",
+        "notFound": "Ningún Cultes encontrado"
+      },
+      "created": "Un nuevo Culte ha sido creado con el identificador {{ param }}",
+      "updated": "Un Culte ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Culte ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Culte {{ id }}?"
+      },
+      "detail": {
+        "title": "Culte"
+      },
+      "id": "ID",
+      "theme": "Theme",
+      "date": "Date",
+      "imageCulte": "Image Culte",
+      "nouveau": "Nouveau"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "communaute": {
+      "home": {
+        "title": "Communautes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Communaute",
+        "createOrEditLabel": "Create or edit a Communaute",
+        "search": "Search for Communaute",
+        "notFound": "No Communautes found"
+      },
+      "created": "A new Communaute is created with identifier {{ param }}",
+      "updated": "A Communaute is updated with identifier {{ param }}",
+      "deleted": "A Communaute is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Communaute {{ id }}?"
+      },
+      "detail": {
+        "title": "Communaute"
+      },
+      "id": "ID",
+      "nom": "Nom"
+    }
+  }
+}

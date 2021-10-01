@@ -1,0 +1,36 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "departement": {
+      "home": {
+        "title": "Departements",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Departement",
+        "createOrEditLabel": "Crear o editar Departement",
+        "search": "Buscar Departement",
+        "notFound": "Ningún Departements encontrado"
+      },
+      "created": "Un nuevo Departement ha sido creado con el identificador {{ param }}",
+      "updated": "Un Departement ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Departement ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Departement {{ id }}?"
+      },
+      "detail": {
+        "title": "Departement"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "shortName": "Short Name",
+      "nomResponsable": "Nom Responsable",
+      "videoIntroduction": "Video Introduction",
+      "contactResponsable": "Contact Responsable",
+      "description": "Description",
+      "couleur1": "Couleur 1",
+      "couleur2": "Couleur 2",
+      "imageCulte": "Image Culte",
+      "gem": "Gem",
+      "nouveau": "Nouveau",
+      "frereQuiInvite": "Frere Qui Invite"
+    }
+  }
+}

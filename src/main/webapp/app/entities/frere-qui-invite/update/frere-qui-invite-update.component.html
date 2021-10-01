@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-frere-qui-invite-heading"
+        data-cy="FrereQuiInviteCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.home.createOrEditLabel"
+      >
+        Create or edit a Frere Qui Invite
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.nomComplet" for="field_nomComplet"
+            >Nom Complet</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomComplet"
+            id="field_nomComplet"
+            data-cy="nomComplet"
+            formControlName="nomComplet"
+          />
+          <div *ngIf="editForm.get('nomComplet')!.invalid && (editForm.get('nomComplet')!.dirty || editForm.get('nomComplet')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nomComplet')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.contact" for="field_contact"
+            >Contact</label
+          >
+          <input type="text" class="form-control" name="contact" id="field_contact" data-cy="contact" formControlName="contact" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.sexe" for="field_sexe">Sexe</label>
+          <select class="form-control" name="sexe" formControlName="sexe" id="field_sexe" data-cy="sexe">
+            <option [ngValue]="null">{{ 'jhipsterSampleApplicationApp.Sexe.null' | translate }}</option>
+            <option value="F">{{ 'jhipsterSampleApplicationApp.Sexe.F' | translate }}</option>
+            <option value="M">{{ 'jhipsterSampleApplicationApp.Sexe.M' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.quartier" for="field_quartier"
+            >Quartier</label
+          >
+          <select class="form-control" id="field_quartier" data-cy="quartier" name="quartier" formControlName="quartier">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="quartierOption.id === editForm.get('quartier')!.value?.id ? editForm.get('quartier')!.value : quartierOption"
+              *ngFor="let quartierOption of quartiersSharedCollection; trackBy: trackQuartierById"
+            >
+              {{ quartierOption.nom }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="jhipsterSampleApplicationApp.frereQuiInvite.departement" for="field_departements">Departement</label>
+          <select
+            class="form-control"
+            id="field_departements"
+            data-cy="departement"
+            multiple
+            name="departements"
+            formControlName="departements"
+          >
+            <option
+              [ngValue]="getSelectedDepartement(departementOption, editForm.get('departements')!.value)"
+              *ngFor="let departementOption of departementsSharedCollection; trackBy: trackDepartementById"
+            >
+              {{ departementOption.nom }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

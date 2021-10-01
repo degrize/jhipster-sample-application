@@ -1,0 +1,12 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "BesoinType": {
+      "null": "",
+      "DELIVRANCE": "DELIVRANCE",
+      "PRIERE": "PRIERE",
+      "SUIVI": "SUIVI",
+      "GUERISON": "GUERISON",
+      "CONNAITRE_DIEU_EN_PROFONDEUR": "CONNAITRE_DIEU_EN_PROFONDEUR"
+    }
+  }
+}

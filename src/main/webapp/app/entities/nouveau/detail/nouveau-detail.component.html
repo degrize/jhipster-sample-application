@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nouveau">
+      <h2 data-cy="nouveauDetailsHeading"><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.detail.title">Nouveau</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ nouveau.id }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="jhipsterSampleApplicationApp.nouveau.nomComplet"
+            [ngbTooltip]="'jhipsterSampleApplicationApp.nouveau.help.nomComplet' | translate"
+            >Nom Complet</span
+          >
+        </dt>
+        <dd>
+          <span>{{ nouveau.nomComplet }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.contact">Contact</span></dt>
+        <dd>
+          <span>{{ nouveau.contact }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.trancheAge">Tranche Age</span></dt>
+        <dd>
+          <span>{{ nouveau.trancheAge }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.situationMatrimoniale">Situation Matrimoniale</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.SituationMatrimoniale.' + nouveau.situationMatrimoniale }}">{{
+            nouveau.situationMatrimoniale
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.date">Date</span></dt>
+        <dd>
+          <span>{{ nouveau.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.impressionsDuCulte">Impressions Du Culte</span></dt>
+        <dd>
+          <span>{{ nouveau.impressionsDuCulte }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.sexe">Sexe</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.Sexe.' + nouveau.sexe }}">{{ nouveau.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.invitePar">Invite Par</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.CanalInvitation.' + nouveau.invitePar }}">{{ nouveau.invitePar }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.communaute">Communaute</span></dt>
+        <dd>
+          <div *ngIf="nouveau.communaute">
+            <a [routerLink]="['/communaute', nouveau.communaute?.id, 'view']">{{ nouveau.communaute?.nom }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.ville">Ville</span></dt>
+        <dd>
+          <div *ngIf="nouveau.ville">
+            <a [routerLink]="['/ville', nouveau.ville?.id, 'view']">{{ nouveau.ville?.nom }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.quartier">Quartier</span></dt>
+        <dd>
+          <div *ngIf="nouveau.quartier">
+            <a [routerLink]="['/quartier', nouveau.quartier?.id, 'view']">{{ nouveau.quartier?.nom }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.culte">Culte</span></dt>
+        <dd>
+          <div *ngIf="nouveau.culte">
+            <a [routerLink]="['/culte', nouveau.culte?.id, 'view']">{{ nouveau.culte?.theme }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.departement">Departement</span></dt>
+        <dd>
+          <span *ngFor="let departement of nouveau.departements; let last = last">
+            <a [routerLink]="['/departement', departement?.id, 'view']">{{ departement.nom }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.frereQuiInvite">Frere Qui Invite</span></dt>
+        <dd>
+          <span *ngFor="let frereQuiInvite of nouveau.frereQuiInvites; let last = last">
+            <a [routerLink]="['/frere-qui-invite', frereQuiInvite?.id, 'view']">{{ frereQuiInvite.nomComplet }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.besoin">Besoin</span></dt>
+        <dd>
+          <span *ngFor="let besoin of nouveau.besoins; let last = last">
+            <a [routerLink]="['/besoin', besoin?.id, 'view']">{{ besoin.besoin }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.nouveau.decision">Decision</span></dt>
+        <dd>
+          <span *ngFor="let decision of nouveau.decisions; let last = last">
+            <a [routerLink]="['/decision', decision?.id, 'view']">{{ decision.decision }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nouveau', nouveau.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
