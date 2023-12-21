@@ -1,227 +1,91 @@
-# jhipsterSampleApplication
+# Practical Session #1: Introduction
 
-This application was generated using JHipster 7.0.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.0.0](https://www.jhipster.tech/documentation-archive/v7.0.0).
+1. Find in news sources a general public article reporting the discovery of a software bug. Describe the bug. If possible, say whether the bug is local or global and describe the failure that manifested its presence. Explain the repercussions of the bug for clients/consumers and the company or entity behind the faulty program. Speculate whether, in your opinion, testing the right scenario would have helped to discover the fault.
 
-## Development
+2. Apache Commons projects are known for the quality of their code and development practices. They use dedicated issue tracking systems to discuss and follow the evolution of bugs and new features. The following link https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-794?filter=doneissues points to the issues considered as solved for the Apache Commons Collections project. Among those issues find one that corresponds to a bug that has been solved. Classify the bug as local or global. Explain the bug and the solution. Did the contributors of the project add new tests to ensure that the bug is detected if it reappears in the future?
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+3. Netflix is famous, among other things we love, for the popularization of *Chaos Engineering*, a fault-tolerance verification technique. The company has implemented protocols to test their entire system in production by simulating faults such as a server shutdown. During these experiments they evaluate the system's capabilities of delivering content under different conditions. The technique was described in [a paper](https://arxiv.org/ftp/arxiv/papers/1702/1702.05843.pdf) published in 2016. Read the paper and briefly explain what are the concrete experiments they perform, what are the requirements for these experiments, what are the variables they observe and what are the main results they obtained. Is Netflix the only company performing these experiments? Speculate how these experiments could be carried in other organizations in terms of the kind of experiment that could be performed and the system variables to observe during the experiments.
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+4. [WebAssembly](https://webassembly.org/) has become the fourth official language supported by web browsers. The language was born from a joint effort of the major players in the Web. Its creators presented their design decisions and the formal specification in [a scientific paper](https://people.mpi-sws.org/~rossberg/papers/Haas,%20Rossberg,%20Schuff,%20Titzer,%20Gohman,%20Wagner,%20Zakai,%20Bastien,%20Holman%20-%20Bringing%20the%20Web%20up%20to%20Speed%20with%20WebAssembly.pdf) published in 2018. The goal of the language is to be a low level, safe and portable compilation target for the Web and other embedding environments. The authors say that it is the first industrial strength language designed with formal semantics from the start. This evidences the feasibility of constructive approaches in this area. Read the paper and explain what are the main advantages of having a formal specification for WebAssembly. In your opinion, does this mean that WebAssembly implementations should not be tested?
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+5.  Shortly after the appearance of WebAssembly another paper proposed a mechanized specification of the language using Isabelle. The paper can be consulted here: https://www.cl.cam.ac.uk/~caw77/papers/mechanising-and-verifying-the-webassembly-specification.pdf. This mechanized specification complements the first formalization attempt from the paper. According to the author of this second paper, what are the main advantages of the mechanized specification? Did it help improving the original formal specification of the language? What other artifacts were derived from this mechanized specification? How did the author verify the specification? Does this new specification removes the need for testing?
 
-```
-npm install
-```
+## Answers
 
-We use npm scripts and [Angular CLI][] with [Webpack][] as our build system.
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+### 1.
+Le bug que nous avons trouvé provient de l’article de [CNET](https://www.cnet.com/tech/services-and-software/chatgpt-bug-exposed-some-subscribers-payment-info/), on apprend que le chatbot de OpenAI, ChatGPT a été victime d’un bug entraînant l’exposition des informations de paiement de certains abonnés. Ce bug a été découvert lorsque certains utilisateurs ont notifié qu’ils pouvaient voir les titres de l’historique de chat d’autres utilisateurs. Ce qui a entraîné l’exposition de d’informations personnelles des clients. OpenAI a déclaré que le nombre de personnes dont les données ont été révélées était extrêmement faible. Le bug a été causé par une bibliothèque open-source Redis client utilisée par OpenAI pour mettre en cache les informations utilisateur sur son serveur, ce qui fait de ce bug un bug global. Les clients concernés ont été informés que leurs informations de paiement ont peut-être été exposées. Cela pourrait avoir un impact négatif sur la réputation de l’entreprise et la confiance des clients dans ses services.
 
-```
-./mvnw
-npm start
-```
+### 2.
+Problème :
+Le problème COLLECTIONS-781 était un bogue qui a été résolu dans le projet Apache Commons Collections. Le bogue était lié à la classe MultiMapUtils. Le bogue a causé la méthode getCollection de la classe MultiMapUtils de ne pas fonctionner correctement avec les objets MultiMap qui ont des clés nulles.
+Alors, on faisait “return -1;” au lieu de renvoyer un objet de clé nulle.
 
-If you want to use [HMR](https://webpack.js.org/guides/hot-module-replacement) for instant page updates and data + scroll position preservation on file changes then instead of `npm start` run
+Le bug a été classé comme un bug local, car il n’a affecté que la classe MultiMapUtils.
+![](https://drive.google.com/file/d/1g-H-bU3QTg1c_84An-oEFK-VjvE4G0mE/view?usp=drive_link)
+![](https://drive.google.com/file/d/1CcLGOxqD9jiW0DYr689nhIA1FHMxEeoN/view?usp=drive_link)
 
-```
-npm run start-hmr
-```
+Solution :
+L'idée est de créer une constante qui représente le fait que l'indice recherché n'a pas été trouvé. Le La solution était de remplacer “return -1;” par “return CollectionUtils.INDEX_NOT_FUND;”
 
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
+Tout en modifiant les classes suivantes:
+``
+src/main/java/org/apache/commons/collections4/list/AbstractLinkedList.java
+src/main/java/org/apache/commons/collections4/map/LinkedMap.java
+src/main/java/org/apache/commons/collections4/ListUtils.java
+src/main/java/org/apache/commons/collections4/IteratorUtils.java
+``
+La figure ci dessous illustre le changement dans le cas de la classe : src/main/java/org/apache/commons/collections4/ListUtils.java
 
-The `npm run` command will list all of the scripts available to run for this project.
+![](https://drive.google.com/file/d/1KGt4MKlwq4L5W2X72J3ZUbqbVP_R6ASo/view?usp=drive_link)
 
-### PWA Support
+vous pouvez voir le changement appliqué aux autres classes en visitant le lien ci-après: https://github.com/apache/commons-collections/pull/210/files
 
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
+Il n’est pas clair si les contributeurs du projet ont ajouté de nouveaux tests pour s’assurer que le bug est détecté s’il réapparaît à l’avenir.
 
-The service worker initialization code is disabled by default. To enable it, uncomment the following code in `src/main/webapp/app/app.module.ts`:
+### 3.
+Dans l’article publié en 2016, on apprend que Netflix réalise différentes expérimentations tel que :
+``
+Instance Termination : Chaos Monkey choisie un serveur et le shutdown afin de s’assurer de la bonne prise en charge des requêtes malgré le shutdown.
+Chaos Kong Exercises : Ces exercices simulent des défaillances plus importantes, telles que la défaillance sur l’ensemble d’une région
+Failure Injection Testing (FIT) : Les exercices FIT consistent à causer délibérément des défaillances ou à injecter des erreurs dans le système afin d’observer son comportement. Cela peut inclure de l’injection de latence dans les demandes entre les services, la provocation d'échecs de demandes, ou la rendant temporairement indisponible pour des services internes.
+Geographic Failover Testing : L’objectif de cet exercice est de tester la capacité du système à passer d’une région à une autre en cas d'interruption d’une région.
+Dependency Failures : Simuler des problèmes de dépendances telles que rendre un service inutilisable ou mettre des erreurs dans les réponses des services externes.
+``
 
-```typescript
-ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
-```
+Leurs expérimentations consistent à :
+Commencez par définir un "état stable" comme une sortie mesurable d'un système indiquant un comportement normal.
+Formulez l'hypothèse selon laquelle cet état stable persistera à la fois dans le groupe témoin et dans le groupe expérimental.
+Introduisez des variables reflétant des événements du monde réel, tels que des serveurs qui tombent en panne, des disques durs qui dysfonctionnent, des connexions réseau qui sont coupées.
+Tentez de réfuter l'hypothèse en recherchant une différence d'état stable entre le groupe témoin et le groupe expérimental.
 
-### Managing dependencies
+Netflix n’est pas la seule entreprise à utiliser cette approche, d’autres entreprises à l’échelle d’internet l'utilisent selon des discussions informelles.
 
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+On pourrait utiliser ce type d’expérience dans d'autres organisations tel que,
 
-```
-npm install --save --save-exact leaflet
-```
+Sécurité :
+``
+Expérience : Simuler des incidents de sécurité, tels que des attaques DDoS ou des tentatives d'accès non autorisées.
+Variables système : Évaluer la capacité du système à détecter et atténuer les menaces de sécurité, surveiller les temps de réponse et identifier les vulnérabilités potentielles.
+``
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
+Intégrité des données :
+``
+Expérience : Introduire des données mal formées ou incorrectes dans le système.
+Variables système : Observer comment le système gère les entrées invalides, évaluer l'impact sur l'intégrité des données et l'expérience utilisateur.
+``
 
-```
-npm install --save-dev --save-exact @types/leaflet
-```
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/app.module.ts](src/main/webapp/app/app.module.ts) file:
+### 4.
 
-```
-import 'leaflet/dist/leaflet.js';
-```
+Le principal avantage d'avoir une spécification formelle pour WebAssembly réside dans le fait qu'elle fournit une définition précise et sans ambiguïté du langage. Cette clarté facilite la mise en œuvre du langage dans différents environnements et garantit un comportement uniforme sur toutes les implémentations.
 
-Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
+Notre réponse est OUI. Car avoir une spécification formelle n'inclurait pas le fait que ses implémentations ne doivent pas être testées. Cette spécification ne peut pas assurer la correction des implémentations. Les tests restent nécessaires pour détecter et corriger les bugs dans les implémentations.
 
-```
-@import '~leaflet/dist/leaflet.css';
-```
 
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### Using Angular CLI
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-```
-ng generate component my-component
-```
-
-will generate few files:
-
-```
-create src/main/webapp/app/my-component/my-component.component.html
-create src/main/webapp/app/my-component/my-component.component.ts
-update src/main/webapp/app/app.module.ts
-```
-
-## Building for production
-
-### Packaging as jar
-
-To build the final jar and optimize the jhipsterSampleApplication application for production, run:
-
-```
-./mvnw -Pprod clean verify
-```
-
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
-
-```
-java -jar target/*.jar
-```
-
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
-
-### Packaging as war
-
-To package your application as a war in order to deploy it to an application server, run:
-
-```
-./mvnw -Pprod,war clean verify
-```
-
-## Testing
-
-To launch your application's tests, run:
-
-```
-./mvnw verify
-```
-
-### Client tests
-
-Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-
-```
-npm test
-```
-
-UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
-and can be run by starting Spring Boot in one terminal (`./mvnw spring-boot:run`) and running the tests (`npm run e2e`) in a second one.
-
-For more information, refer to the [Running tests page][].
-
-### Code quality
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
-
-```
-docker-compose -f src/main/docker/sonar.yml up -d
-```
-
-Note: we have turned off authentication in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
-
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
-
-Then, run a Sonar analysis:
-
-```
-./mvnw -Pprod clean verify sonar:sonar
-```
-
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
-
-```
-./mvnw initialize sonar:sonar
-```
-
-For more information, refer to the [Code quality page][].
-
-## Using Docker to simplify development (optional)
-
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
-
-For example, to start a postgresql database in a docker container, run:
-
-```
-docker-compose -f src/main/docker/postgresql.yml up -d
-```
-
-To stop it and remove the container, run:
-
-```
-docker-compose -f src/main/docker/postgresql.yml down
-```
-
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
-
-```
-./mvnw -Pprod verify jib:dockerBuild
-```
-
-Then run:
-
-```
-docker-compose -f src/main/docker/app.yml up -d
-```
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 7.0.0 archive]: https://www.jhipster.tech/documentation-archive/v7.0.0
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v7.0.0/development/
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v7.0.0/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v7.0.0/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v7.0.0/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v7.0.0/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.0.0/setting-up-ci/
-[node.js]: https://nodejs.org/
-[webpack]: https://webpack.github.io/
-[angular cli]: https://cli.angular.io/
-[browsersync]: https://www.browsersync.io/
-[jest]: https://facebook.github.io/jest/
-[jasmine]: https://jasmine.github.io/2.0/introduction.html
-[protractor]: https://angular.github.io/protractor/
-[leaflet]: https://leafletjs.com/
-[definitelytyped]: https://definitelytyped.org/
+### 5.
+Les principaux avantages de la spécification mécanisée sont que la spécification mécanisée est plus précise et moins sujette à l'ambiguïté, est plus modulaire et plus facile à entretenir ainsi que plus extensible et plus facile à mettre à jour que la première tentative de formalisation. De plus, la spécification mécanisée a contribué à améliorer la spécification formelle initiale du langage. Elle a mis en évidence plusieurs problèmes avec la spécification officielle de WebAssembly, ce qui a permis d'influencer son développement.
+La spécification mécanisée a conduit à la création de plusieurs artefacts tels que la création d’un interpréteur et d’un vérificateur de type exécutables vérifiés pour le langage WebAssembly. Cela a conduit aussi à une preuve entièrement mécanisée de la cohérence du système de types de WebAssembly. Ainsi qu’à la réalisation d’un fuzzing différentiel de l'interpréteur par rapport aux mises en œuvre industrielles.
+L’auteur vérifie la spécification en utilisant le theorem prover Isabelle/HOL.
+La spécification mécanisée ne supprime pas le besoin de tests. Elle vient en complément de la première tentative de formalisation et offre une base plus fiable et plus extensible pour le langage WebAssembly.
